@@ -48,7 +48,7 @@ This document contains the help content for the `spacetime` command-line program
 - `publish` — Create and update a SpacetimeDB database
 - `delete` — Deletes a SpacetimeDB database
 - `logs` — Prints logs from a SpacetimeDB database
-- `call` — Invokes a reducer function in a database. WARNING: This command is UNSTABLE and subject to breaking changes.
+- `call` — Invokes a reducer function OR procedure in a database. WARNING: This command is UNSTABLE and subject to breaking changes.
 - `describe` — Describe the structure of a database or entities within it. WARNING: This command is UNSTABLE and subject to breaking changes.
 - `energy` — Invokes commands related to database budgets. WARNING: This command is UNSTABLE and subject to breaking changes.
 - `sql` — Runs a SQL query on the database. WARNING: This command is UNSTABLE and subject to breaking changes.
@@ -145,16 +145,16 @@ Run `spacetime help logs` for more detailed information.
 
 ## spacetime call
 
-Invokes a reducer function in a database. WARNING: This command is UNSTABLE and subject to breaking changes.
+Invokes a reducer function OR procedure in a database. WARNING: This command is UNSTABLE and subject to breaking changes.
 
-**Usage:** `spacetime call [OPTIONS] <database> <reducer_name> [arguments]...`
+**Usage:** `spacetime call [OPTIONS] <database> <reducer_procedure_name> [arguments]...`
 
 Run `spacetime help call` for more detailed information.
 
 ###### <b>Arguments:</b>
 
 - `<DATABASE>` — The database name or identity to use to invoke the call
-- `<REDUCER_NAME>` — The name of the reducer to call
+- `<REDUCER_PROCEDURE_NAME>` — The name of the reducer OR procedure to call
 - `<ARGUMENTS>` — arguments formatted as JSON
 
 ###### <b>Options:</b>

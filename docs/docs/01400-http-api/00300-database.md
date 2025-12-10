@@ -9,7 +9,7 @@ The HTTP endpoints in `/v1/database` allow clients to interact with Spacetime da
 ## At a glance
 
 | Route                                                                                              | Description                                       |
-| -------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| ---------------------------------------------------------------------------------------------------| ------------------------------------------------- |
 | [`POST /v1/database`](#post-v1database)                                                            | Publish a new database given its module code.     |
 | [`POST /v1/database/:name_or_identity`](#post-v1databasename_or_identity)                          | Publish to a database given its module code.      |
 | [`GET /v1/database/:name_or_identity`](#get-v1databasename_or_identity)                            | Get a JSON description of a database.             |
@@ -19,7 +19,7 @@ The HTTP endpoints in `/v1/database` allow clients to interact with Spacetime da
 | [`PUT /v1/database/:name_or_identity/names`](#put-v1databasename_or_identitynames)                 | Set the list of names for this database.          |
 | [`GET /v1/database/:name_or_identity/identity`](#get-v1databasename_or_identityidentity)           | Get the identity of a database.                   |
 | [`GET /v1/database/:name_or_identity/subscribe`](#get-v1databasename_or_identitysubscribe)         | Begin a WebSocket connection.                     |
-| [`POST /v1/database/:name_or_identity/call/:reducer`](#post-v1databasename_or_identitycallreducer) | Invoke a reducer in a database.                   |
+| [`POST /v1/database/:name_or_identity/call/:reducer`](#post-v1databasename_or_identitycallreducer) | Invoke a reducer or procedure in a database.      |
 | [`GET /v1/database/:name_or_identity/schema`](#get-v1databasename_or_identityschema)               | Get the schema for a database.                    |
 | [`GET /v1/database/:name_or_identity/logs`](#get-v1databasename_or_identitylogs)                   | Retrieve logs from a database.                    |
 | [`POST /v1/database/:name_or_identity/sql`](#post-v1databasename_or_identitysql)                   | Run a SQL query against a database.               |
@@ -241,13 +241,13 @@ The SpacetimeDB text WebSocket protocol, `v1.json.spacetimedb`, encodes messages
 
 ## `POST /v1/database/:name_or_identity/call/:reducer`
 
-Invoke a reducer in a database.
+Invoke a reducer or procedure in a database.
 
 #### Path parameters
 
-| Name       | Value                    |
-| ---------- | ------------------------ |
-| `:reducer` | The name of the reducer. |
+| Name       | Value                                 |
+| ---------- | ------------------------------------- |
+| `:reducer` | The name of the reducer or procedure. |
 
 #### Required Headers
 
