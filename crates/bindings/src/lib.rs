@@ -27,6 +27,7 @@ pub use client_visibility_filter::Filter;
 pub use log;
 #[cfg(feature = "rand")]
 pub use rand08 as rand;
+#[cfg(feature = "rand")]
 use rand08::RngCore;
 #[cfg(feature = "rand08")]
 pub use rng::StdbRng;
@@ -1045,6 +1046,7 @@ impl ReducerContext {
     /// }
     /// # }
     /// ```
+    #[cfg(feature = "rand")]
     pub fn new_uuid_v4(&self) -> anyhow::Result<Uuid> {
         let mut bytes = [0u8; 16];
         self.rng().try_fill_bytes(&mut bytes)?;
@@ -1325,7 +1327,7 @@ impl ProcedureContext {
     /// }
     /// # }
     /// ```
-    #[cfg(feature = "unstable")]
+    #[cfg(all(feature = "unstable", feature = "rand"))]
     pub fn new_uuid_v4(&self) -> anyhow::Result<Uuid> {
         let mut bytes = [0u8; 16];
         self.rng().try_fill_bytes(&mut bytes)?;
